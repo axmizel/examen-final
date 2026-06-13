@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 import Navbar from "./components/organisms/Navbar";
+import Footer from "./components/organisms/Footer";
 
 import Home from "./pages/Home";
 import Licitaciones from "./pages/Licitaciones";
@@ -11,7 +12,6 @@ import DetalleLicitacion from "./pages/DetalleLicitacion";
 function App() {
   const [darkMode, setDarkMode] = useState(false);
 
-  // 🌙 detectar sistema operativo al cargar
   useEffect(() => {
     const systemDark = window.matchMedia(
       "(prefers-color-scheme: dark)"
@@ -20,7 +20,6 @@ function App() {
     setDarkMode(systemDark);
   }, []);
 
-  // 🎨 aplicar tema global
   useEffect(() => {
     document.body.className = darkMode
       ? "bg-dark text-light"
@@ -31,19 +30,35 @@ function App() {
     <BrowserRouter>
       <div className="min-vh-100 d-flex flex-column">
 
-        {/* NAVBAR GLOBAL */}
-        <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
+        <Navbar
+          darkMode={darkMode}
+          setDarkMode={setDarkMode}
+        />
 
-        {/* CONTENIDO */}
         <main className="flex-grow-1 container py-4">
 
           <Routes>
-            <Route path="/" element={<Home darkMode={darkMode} />} />
-            <Route path="/licitaciones" element={<Licitaciones darkMode={darkMode} />} />
-            <Route path="/proveedores" element={<Proveedores darkMode={darkMode} />} />
-            <Route path="/detalle/:codigo" element={<DetalleLicitacion darkMode={darkMode} />} />
 
-            {/* 404 */}
+            <Route
+              path="/"
+              element={<Home darkMode={darkMode} />}
+            />
+
+            <Route
+              path="/licitaciones"
+              element={<Licitaciones darkMode={darkMode} />}
+            />
+
+            <Route
+              path="/proveedores"
+              element={<Proveedores darkMode={darkMode} />}
+            />
+
+            <Route
+              path="/detalle/:codigo"
+              element={<DetalleLicitacion darkMode={darkMode} />}
+            />
+
             <Route
               path="*"
               element={
@@ -53,14 +68,12 @@ function App() {
                 </div>
               }
             />
+
           </Routes>
 
         </main>
 
-        {/* FOOTER */}
-        <footer className="text-center py-3 border-top">
-          <small>© Licitaseguro - Chile</small>
-        </footer>
+        <Footer />
 
       </div>
     </BrowserRouter>
