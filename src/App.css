@@ -1,28 +1,31 @@
-body {
-  background: #121212;
-  color: white;
-}
+.counter {
+  font-size: 16px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: var(--accent);
+  background: var(--accent-bg);
+  border: 2px solid transparent;
+  transition: border-color 0.3s;
+  margin-bottom: 24px;
 
-.card {
-  background: #1e1e1e;
-  color: white;
-  border: 1px solid #333;
-  transition: 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-5px);
+  &:hover {
+    border-color: var(--accent-border);
+  }
+  &:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
 }
 
 .hero {
-  background: #1e1e1e;
-  border-radius: 20px;
-}
+  position: relative;
 
-.navbar {
-  border-bottom: 1px solid #333;
-}
-  
+  .base,
+  .framework,
+  .vite {
+    inset-inline: 0;
+    margin: 0 auto;
+  }
 
   .base {
     width: 170px;
@@ -51,7 +54,7 @@ body {
     transform: perspective(2000px) rotateZ(300deg) rotateX(40deg) rotateY(39deg)
       scale(0.8);
   }
-
+}
 
 #center {
   display: flex;
