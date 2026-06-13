@@ -1,11 +1,12 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 function Navbar({ darkMode, setDarkMode }) {
   return (
-    <nav className={`navbar navbar-expand-lg navbar-dark shadow-sm ${
-      darkMode ? "bg-dark" : "bg-primary"
-    }`}>
-
+    <nav
+      className={`navbar navbar-expand-lg navbar-dark shadow-sm ${
+        darkMode ? "bg-dark" : "bg-primary"
+      }`}
+    >
       <div className="container">
 
         {/* BRAND */}
@@ -13,7 +14,7 @@ function Navbar({ darkMode, setDarkMode }) {
           LicitaSeguro
         </Link>
 
-        {/* TOGGLER MOBILE */}
+        {/* MOBILE BUTTON */}
         <button
           className="navbar-toggler"
           type="button"
@@ -31,19 +32,34 @@ function Navbar({ darkMode, setDarkMode }) {
 
           <div className="navbar-nav ms-auto align-items-lg-center gap-2">
 
-            <Link className="nav-link" to="/">
+            <NavLink
+              className={({ isActive }) =>
+                "nav-link" + (isActive ? " fw-bold text-warning" : "")
+              }
+              to="/"
+            >
               Inicio
-            </Link>
+            </NavLink>
 
-            <Link className="nav-link" to="/licitaciones">
+            <NavLink
+              className={({ isActive }) =>
+                "nav-link" + (isActive ? " fw-bold text-warning" : "")
+              }
+              to="/licitaciones"
+            >
               Licitaciones
-            </Link>
+            </NavLink>
 
-            <Link className="nav-link" to="/proveedores">
+            <NavLink
+              className={({ isActive }) =>
+                "nav-link" + (isActive ? " fw-bold text-warning" : "")
+              }
+              to="/proveedores"
+            >
               Proveedores
-            </Link>
+            </NavLink>
 
-            {/* DARK MODE BUTTON */}
+            {/* DARK MODE TOGGLE */}
             <button
               className={`btn btn-sm ${
                 darkMode ? "btn-light" : "btn-outline-light"
