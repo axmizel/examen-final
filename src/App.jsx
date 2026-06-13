@@ -11,7 +11,16 @@ import DetalleLicitacion from "./pages/DetalleLicitacion";
 function App() {
   const [darkMode, setDarkMode] = useState(false);
 
-  // aplicar tema global
+  // 🌙 detectar sistema operativo al cargar
+  useEffect(() => {
+    const systemDark = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    ).matches;
+
+    setDarkMode(systemDark);
+  }, []);
+
+  // 🎨 aplicar tema global
   useEffect(() => {
     document.body.className = darkMode
       ? "bg-dark text-light"
@@ -35,17 +44,20 @@ function App() {
             <Route path="/detalle/:codigo" element={<DetalleLicitacion darkMode={darkMode} />} />
 
             {/* 404 */}
-            <Route path="*" element={
-              <div className="text-center py-5">
-                <h1>404</h1>
-                <p>Página no encontrada</p>
-              </div>
-            } />
+            <Route
+              path="*"
+              element={
+                <div className="text-center py-5">
+                  <h1>404</h1>
+                  <p>Página no encontrada</p>
+                </div>
+              }
+            />
           </Routes>
 
         </main>
 
-        {/* FOOTER SIMPLE (sube nota visual) */}
+        {/* FOOTER */}
         <footer className="text-center py-3 border-top">
           <small>© Licitaseguro - Chile</small>
         </footer>
