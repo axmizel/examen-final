@@ -1,4 +1,4 @@
-// src/pages/home.jsx
+
 
 import Hero from "../components/organisms/Hero";
 import CardInfo from "../components/molecules/CardInfo";
