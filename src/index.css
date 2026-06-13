@@ -1,29 +1,76 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  background-color: #121212;
+  background: #0a0a0a;
   color: #ffffff;
-}
-
-.card {
-  background-color: #1e1e1e;
-  color: white;
-  border: 1px solid #333;
-}
-
-.hero {
-  background-color: #1e1e1e;
-  color: white;
-  border-radius: 20px;
+  font-family: Inter, Arial, sans-serif;
 }
 
 .navbar {
-  background-color: #0d1117 !important;
+  background: #000 !important;
+  border-bottom: 1px solid #222;
+}
+
+.hero {
+  background: #111;
+  border: 1px solid #222;
+  border-radius: 20px;
+  padding: 60px;
+  margin-top: 30px;
+  box-shadow: 0 0 20px rgba(0,0,0,.5);
+}
+
+.hero h1 {
+  font-size: 4rem;
+  font-weight: 700;
+}
+
+.hero p {
+  color: #bdbdbd;
+  font-size: 1.2rem;
 }
 
 .btn-primary {
-  background-color: #2563eb;
+  background: #2563eb;
   border: none;
+  padding: 12px 24px;
+  border-radius: 10px;
 }
 
 .btn-primary:hover {
-  background-color: #1d4ed8;
+  background: #1d4ed8;
+}
+
+.card {
+  background: #111;
+  border: 1px solid #222;
+  color: white;
+  border-radius: 16px;
+  transition: .3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: #2563eb;
+}
+
+.card-title {
+  font-weight: 600;
+}
+
+.card-text {
+  color: #bdbdbd;
+}
+
+footer {
+  background: #000;
+  border-top: 1px solid #222;
+  color: #999;
+  margin-top: 50px;
+  padding: 20px;
+  text-align: center;
 }
