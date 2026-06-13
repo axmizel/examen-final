@@ -1,48 +1,58 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import SearchBar from "../components/molecules/Searchbar";
+import SearchBar from "../components/molecules/SearchBar";
 
-const LICITACIONES = [
-  { codigo: "LIC-001", nombre: "Suministros médicos" },
-  { codigo: "LIC-002", nombre: "Equipamiento tecnológico" },
-  { codigo: "LIC-003", nombre: "Servicios de mantenimiento" },
-];
+function Licitaciones() {
+  const [licitaciones] = useState([
+    {
+      codigo: "1001",
+      nombre: "Compra de Equipos Computacionales",
+      organismo: "Municipalidad de Santiago",
+    },
+    {
+      codigo: "1002",
+      nombre: "Servicio de Mantención",
+      organismo: "Hospital Regional",
+    },
+    {
+      codigo: "1003",
+      nombre: "Adquisición de Mobiliario",
+      organismo: "Ministerio de Educación",
+    },
+  ]);
 
-export default function Licitaciones() {
-  const [query, setQuery] = useState("");
+  const [resultado, setResultado] = useState(licitaciones);
 
-  const filtradas = LICITACIONES.filter(
-    (l) =>
-      l.nombre.toLowerCase().includes(query.toLowerCase()) ||
-      l.codigo.toLowerCase().includes(query.toLowerCase())
-  );
+  const handleSearch = (texto) => {
+    const filtradas = licitaciones.filter((item) =>
+      item.nombre.toLowerCase().includes(texto.toLowerCase())
+    );
+
+    setResultado(filtradas);
+  };
 
   return (
-    <div className="container mt-5">
+    <div className="container mt-4">
       <h1>Licitaciones</h1>
-      <p>Listado de licitaciones disponibles.</p>
 
-      <div className="my-4">
-        <SearchBar onSearch={setQuery} />
-      </div>
+      <SearchBar onSearch={handleSearch} />
 
-      <div className="list-group">
-        {filtradas.length > 0 ? (
-          filtradas.map((l) => (
-            <Link
-              key={l.codigo}
-              to={`/detalle/${l.codigo}`}
-              className="list-group-item list-group-item-action"
-            >
-              {l.codigo} — {l.nombre}
-            </Link>
-          ))
-        ) : (
-          <p className="text-muted mt-3">
-            No se encontraron licitaciones.
-          </p>
-        )}
+      <div className="mt-4">
+        {resultado.map((licitacion) => (
+          <div key={licitacion.codigo} className="card mb-3">
+            <div className="card-body">
+              <h5>{licitacion.nombre}</h5>
+              <p>
+                <strong>Código:</strong> {licitacion.codigo}
+              </p>
+              <p>
+                <strong>Organismo:</strong> {licitacion.organismo}
+              </p>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
 }
+
+export default Licitaciones;
