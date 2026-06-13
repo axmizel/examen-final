@@ -1,14 +1,14 @@
 import { useState } from "react";
 import Input from "../atoms/Input";
 import Button from "../atoms/Button";
- 
+
 function SearchBar({ onSearch }) {
   const [query, setQuery] = useState("");
- 
+
   const handleSearch = () => {
     if (onSearch) onSearch(query);
   };
- 
+
   return (
     <div className="d-flex gap-2">
       <Input
@@ -16,6 +16,7 @@ function SearchBar({ onSearch }) {
         value={query}
         onChange={(e) => setQuery(e.target.value)}
       />
+
       <Button
         text="Buscar"
         className="btn-primary"
@@ -24,5 +25,5 @@ function SearchBar({ onSearch }) {
     </div>
   );
 }
- 
+
 export default SearchBar;
