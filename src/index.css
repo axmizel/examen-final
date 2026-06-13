@@ -109,3 +109,35 @@ code {
   padding: 4px 8px;
   background: var(--code-bg);
 }
+body {
+  background: #0a0a0a;
+  color: white;
+}
+
+.hero {
+  background: #111;
+  border: 1px solid #222;
+  border-radius: 20px;
+  padding: 60px;
+  margin-top: 30px;
+}
+
+.card {
+  background: #111;
+  color: white;
+  border: 1px solid #222;
+}
+
+.card-text {
+  color: #bdbdbd;
+}
+
+footer {
+  background: #000;
+  color: #888;
+  border-top: 1px solid #222;
+}
+
+.navbar {
+  background: #000 !important;
+}
