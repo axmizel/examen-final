@@ -1,5 +1,5 @@
 import { useState } from "react";
-import SearchBar from "../components/molecules/searchbar";
+import SearchBar from "../components/molecules/SearchBar";
 
 function Licitaciones() {
   const [licitaciones] = useState([
