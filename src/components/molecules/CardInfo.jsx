@@ -1,4 +1,4 @@
-function CardInfo({ titulo, descripcion }) {
+function CardInfo({ titulo = "Sin título", descripcion = "Sin descripción" }) {
   return (
     <div className="card shadow h-100">
       <div className="card-body">
@@ -8,5 +8,5 @@ function CardInfo({ titulo, descripcion }) {
     </div>
   );
 }
-
+ 
 export default CardInfo;

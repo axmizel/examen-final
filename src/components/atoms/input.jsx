@@ -4,10 +4,10 @@ function Input({ type = "text", placeholder, value, onChange }) {
       type={type}
       className="form-control"
       placeholder={placeholder}
-      value={value}
+      value={value ?? ""}
       onChange={onChange}
     />
   );
 }
-
+ 
 export default Input;
