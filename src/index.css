@@ -15,11 +15,23 @@ body {
 
 /* Navbar */
 
-.navbar {
-  background: #000 !important;
-  border-bottom: 1px solid #222;
+.nav-link {
+  transition: all 0.3s ease;
 }
 
+.nav-link:hover {
+  color: #0d6efd !important;
+}
+
+.navbar-brand {
+  letter-spacing: 1px;
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
 /* Hero */
 
 

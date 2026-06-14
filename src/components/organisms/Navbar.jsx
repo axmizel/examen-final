@@ -1,19 +1,15 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 function Navbar({ darkMode, setDarkMode }) {
   return (
-    <nav className={`navbar navbar-expand-lg navbar-dark shadow-sm ${
-      darkMode ? "bg-dark" : "bg-primary"
-    }`}>
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow">
 
       <div className="container">
 
-        {/* BRAND */}
-        <Link className="navbar-brand fw-bold" to="/">
+        <Link className="navbar-brand fw-bold fs-4" to="/">
           LicitaSeguro
         </Link>
 
-        {/* TOGGLER MOBILE */}
         <button
           className="navbar-toggler"
           type="button"
@@ -26,39 +22,57 @@ function Navbar({ darkMode, setDarkMode }) {
           <span className="navbar-toggler-icon"></span>
         </button>
 
-        {/* LINKS */}
-        <div className="collapse navbar-collapse" id="navbarNav">
+        <div
+          className="collapse navbar-collapse"
+          id="navbarNav"
+        >
 
-          <div className="navbar-nav ms-auto align-items-lg-center gap-2">
+          <ul className="navbar-nav ms-auto align-items-center">
 
-            <Link className="nav-link" to="/">
-              Inicio
-            </Link>
+            <li className="nav-item">
+              <NavLink
+                className="nav-link"
+                to="/"
+              >
+                Inicio
+              </NavLink>
+            </li>
 
-            <Link className="nav-link" to="/licitaciones">
-              Licitaciones
-            </Link>
+            <li className="nav-item">
+              <NavLink
+                className="nav-link"
+                to="/licitaciones"
+              >
+                Licitaciones
+              </NavLink>
+            </li>
 
-            <Link className="nav-link" to="/proveedores">
-              Proveedores
-            </Link>
+            <li className="nav-item">
+              <NavLink
+                className="nav-link"
+                to="/proveedores"
+              >
+                Proveedores
+              </NavLink>
+            </li>
 
-            {/* DARK MODE BUTTON */}
-            <button
-              className={`btn btn-sm ${
-                darkMode ? "btn-light" : "btn-outline-light"
-              } ms-lg-3`}
-              onClick={() => setDarkMode(!darkMode)}
-              aria-label="Cambiar modo oscuro"
-            >
-              {darkMode ? "☀️ Claro" : "🌙 Oscuro"}
-            </button>
+            <li className="nav-item ms-lg-3">
+              <button
+                className="btn btn-outline-light btn-sm"
+                onClick={() =>
+                  setDarkMode(!darkMode)
+                }
+              >
+                {darkMode ? "☀️" : "🌙"}
+              </button>
+            </li>
 
-          </div>
+          </ul>
 
         </div>
 
       </div>
+
     </nav>
   );
 }
