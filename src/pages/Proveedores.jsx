@@ -167,7 +167,7 @@ function Proveedores() {
                 <hr />
 
                 <p>
-                  <strong>RUT:</strong> {p.rut}
+                  <strong>RUT:20.956.348-7</strong> {p.rut}
                 </p>
 
                 <p>
